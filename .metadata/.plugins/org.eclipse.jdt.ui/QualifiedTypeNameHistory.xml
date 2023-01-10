@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="kr.co.ch06.vo.UserVO"/>
+    <fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionTemplate"/>
+    <fullyQualifiedTypeName name="kr.co.ch07.dao.User1DAO"/>
+    <fullyQualifiedTypeName name="kr.co.ch07.service.User1Service"/>
+    <fullyQualifiedTypeName name="kr.co.ch07.vo.User1VO"/>
+    <fullyQualifiedTypeName name="org.mybatis.spring.annotation.MapperScan"/>
+    <fullyQualifiedTypeName name="kr.co.ch07.dao.User2DAO"/>
+    <fullyQualifiedTypeName name="kr.co.ch07.service.User2Service"/>
+    <fullyQualifiedTypeName name="kr.co.ch07.vo.User2VO"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.ToString"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
+    <fullyQualifiedTypeName name="kr.co.ch07.dao.User3DAO"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="kr.co.ch07.service.User3Service"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="kr.co.ch07.vo.User3VO"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+</qualifiedTypeNameHistroy>
