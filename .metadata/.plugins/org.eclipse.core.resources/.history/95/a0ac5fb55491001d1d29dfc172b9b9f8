@@ -1,0 +1,19 @@
+package kr.co.ch07.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class MainController {
+	
+	@GetMapping(value = {"/", "/index"})
+	public String index() {
+		return "/index";
+	}
+
+	@GetMapping("/query1")
+	public String query1() {
+		System.out.println("query1 결과 : ");
+		return "redirect:/";
+	}
+}

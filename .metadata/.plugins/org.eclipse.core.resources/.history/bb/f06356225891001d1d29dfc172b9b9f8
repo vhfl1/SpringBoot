@@ -1,0 +1,25 @@
+package kr.co.ch07.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import kr.co.ch07.repository.User1Repo;
+
+@Controller
+public class MainController {
+	
+	@Autowired
+	private User1Repo repo;
+	
+	@GetMapping(value = {"/", "/index"})
+	public String index() {
+		return "/index";
+	}
+
+	@GetMapping("/query1")
+	public String query1() {
+		System.out.println("query1 결과 : ");
+		return "redirect:/";
+	}
+}
