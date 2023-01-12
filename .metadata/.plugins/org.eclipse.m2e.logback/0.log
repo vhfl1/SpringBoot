@@ -2624,3 +2624,11 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.mybatis.s
 2023-01-12 11:46:50,971 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-01-12 11:46:50,971 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2023-01-12 11:46:50,971 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\java1\Desktop\Workspace\SpringBoot\Ch08\src\test\resources
+2023-01-12 13:14:22,882 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-01-12 13:19:24,211 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-01-12 13:19:24,212 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-01-12 13:19:24,214 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-01-12 13:19:24,227 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 11 resources
+2023-01-12 13:19:24,232 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-01-12 13:19:24,232 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-01-12 13:19:24,232 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\java1\Desktop\Workspace\SpringBoot\Ch08\src\test\resources

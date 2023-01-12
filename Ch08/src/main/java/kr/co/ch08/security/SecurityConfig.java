@@ -1,10 +1,14 @@
 package kr.co.ch08.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import kr.co.ch08.service.User2Service;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -35,6 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.logoutSuccessUrl("/user2/login");
 	}
 	
+	@Autowired
+	private User2Service userService;
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
@@ -43,8 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		auth.inMemoryAuthentication().withUser("manager").password("{noop}1234").roles("MANAGER");
 		auth.inMemoryAuthentication().withUser("member").password("{noop}1234").roles("MEMBER");
 		
-		
-		
+		//로그인 인증 처리 서비스, 암호화 방식 설정
+		auth.userDetailsService(userService).passwordEncoder(new MessageDigestPasswordEncoder("SHA-256"));
 	}
 
 }
