@@ -9,7 +9,7 @@
 		
 		$.ajax({
 			'url':'/Ch09/user1',
-			'method':'get',
+			'method':'GET',
 			'dataType':'json',
 			'success':function(data){
 				console.log(data);
@@ -20,11 +20,9 @@
 	//user1 목록 요청
 	$('.user1_list2').click(function(){
 		
-		let uid = input.val();
-		
 		$.ajax({
-			'url':'/Ch09/user1/a101',
-			'method':'get',
+			'url':'/Ch09/user1/r101',
+			'method':'GET',
 			'dataType':'json',
 			'success':function(data){
 				console.log(data);
@@ -36,16 +34,16 @@
 	$('.user1_register').click(function(){
 		
 		let jsonData = {
-				"uid":"a101",
+				"uid":"r101",
 				"name":"aadd",
-				"hp":"010-11234-1234",
+				"hp":"010-1234-1234",
 				"age":22
 			};
 		
 		
 		$.ajax({
 			url:'/Ch09/user1',
-			method:'post',
+			method:'POST',
 			data:jsonData,
 			dataType:'json',
 			success:function(data){
@@ -59,15 +57,15 @@
 	$('.user1_modify').click(function(){
 		
 		let jsonData = {
-				"uid":"a101",
+				"uid":"r101",
 				"name":"aadd",
-				"hp":"010-11234-1111",
+				"hp":"010-1234-1111",
 				"age":27
 			};
 		
 		$.ajax({
 			url:'/Ch09/user1',
-			method:'put',
+			method:'PUT',
 			data:jsonData,
 			dataType:'json',
 			success:function(data){
@@ -80,8 +78,8 @@
 	$('.user1_delete').click(function(){
 		
 		$.ajax({
-			url:'/Ch09/user1/a101',
-			method:'delete',
+			url:'/Ch09/user1/r101',
+			method:'DELETE',
 			dataType:'json',
 			success:function(data){
 				console.log(data);
