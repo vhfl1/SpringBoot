@@ -33,7 +33,9 @@ public class ArticleController {
 	}
 	
 	@GetMapping("/view")
-	public String view() {
+	public String view(int no, Model model) {
+		ArticleVO article = service.selectArticle(no);
+		model.addAttribute("article", article);
 		return "/view";
 	}
 	

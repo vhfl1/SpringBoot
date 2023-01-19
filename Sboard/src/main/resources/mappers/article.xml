@@ -12,7 +12,6 @@
 			`regip`=#{regip},
 			`rdate`=NOW()
 	</insert>
-	
 	<insert id="insertFile">
 		insert into `board_file` set
 			`parent`=#{parent},
@@ -20,8 +19,10 @@
 			`oriName`=#{oriName},
 			`rdate`=NOW();
 	</insert>
-	
 	<select id="selectArticles" resultType="kr.co.sboard.vo.ArticleVO">
-		select `no`,`title`,`uid`,`rdate`,`hit`, `comment` from `board_article`;
+		select a.`no`, a.`title`, a.`uid`, b.`nick`, a.`rdate`, a.`hit`, a.`comment` from `board_article` as a join `board_user` as b on a.`uid`=b.`uid`;
+	</select>
+	<select id="selectArticle" resultType="kr.co.sboard.vo.ArticleVO">
+		select
 	</select>
 </mapper>
