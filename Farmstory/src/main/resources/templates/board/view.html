@@ -18,13 +18,13 @@
             <td><textarea name="content" readonly>내용 샘플입니다.</textarea></td>
         </tr>
     </table>
-
-    <div>
-        <a href="#" class="btn btnRemove">삭제</a>
-        <a href="./modify.html" class="btn btnModify">수정</a>
-        <a href="./list.html" class="btn btnList">목록</a>
-    </div>
     */-->
+    <div>
+        <a th:href="@{#}" class="btn btnRemove">삭제</a>
+        <a th:href="@{/board/modify(group=${group},cate=${cate})}" class="btn btnModify">수정</a>
+        <a th:href="@{/board/list(group=${group},cate=${cate})}" class="btn btnList">목록</a>
+    </div>
+
     <!-- 댓글목록 -->
     <section class="commentList">
         <h3>댓글목록</h3>

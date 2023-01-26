@@ -2,7 +2,7 @@
 <th:block th:include="@{board/_community.html}"/>
 <main id="board" class="modify">
 
-    <form th:action="@{/modify}" method="post">
+    <form th:action="#" method="post">
         <!--/*<input type="hidden" name="uid" th:value="${#authentication.principal.user.uid}">*/-->
         <table border="0">
             <caption>글수정</caption>
@@ -21,7 +21,7 @@
         </table>
 
         <div>
-            <a th:href="@{/view}" class="btn btnCancel">취소</a>
+            <a th:href="@{/board/view(group=${group},cate=${cate})}" class="btn btnCancel">취소</a>
             <input type="submit" value="수정완료" class="btn btnComplete"/>
         </div>
     </form>

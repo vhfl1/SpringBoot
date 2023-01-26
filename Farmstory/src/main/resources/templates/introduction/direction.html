@@ -1,4 +1,25 @@
 <th:block th:include="@{_header.html}"/>
+<div id="sub">
+    <div><img src="../img/sub_top_tit1.png" alt="INTRODUCTION"></div>
+    <section class="cate1">
+        <aside>
+            <img src="../img/sub_aside_cate1_tit.png" alt="팜스토리 소개"/>
+
+            <ul class="lnb">
+                <li><a th:href="@{/introduction/hello}">인사말</a></li>
+                <li class="on"><a th:href="@{/introduction/direction}">찾아오시는 길</a></li>
+            </ul>
+
+        </aside>
+        <article>
+            <nav>
+                <img src="../img/sub_nav_tit_cate1_tit2.png" alt="찾아오시는길"/>
+                <p>
+                    HOME > 팜스토리소개 > <em>찾아오시는길</em>
+                </p>
+            </nav>
+
+            <!-- 내용 시작 -->
             <p>
                 <strong>팜스토리</strong><br>
                 주소: 경기도 이천시 잘한다구 신난다동 123<br>
