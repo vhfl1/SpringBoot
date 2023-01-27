@@ -10,4 +10,5 @@ public class FarmstoryApplication {
 		SpringApplication.run(FarmstoryApplication.class, args);
 	}
 
+
 }

@@ -1,5 +1,56 @@
-<th:block th:include="@{_header.html}"/>
-        <main id="user" class="register">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script>
+    	// 순수 자바스크립트(바닐라 스크립트) AJAX 처리 로직
+	    window.onload = () => {
+
+			const btnCheckUid = document.getElementById('btnUidCheck');
+
+			btnCheckUid.addEventListener('click', ()=>{
+
+				let uid = document.querySelector('input[name=uid]').value;
+
+    			const xhr = new XMLHttpRequest();
+    			xhr.open("GET", "/Farmstory/user/checkUid?uid="+uid);
+    			xhr.responseType = "json";
+    			xhr.send();
+
+				xhr.onreadystatechange = function(){
+
+    				if (xhr.readyState === XMLHttpRequest.DONE) {
+
+						if (xhr.status === 200) {
+  				    		const data = xhr.response;
+  				    		const resultUid = document.querySelector(".resultUid");
+
+  				    		if(data.result == 1){
+  				    			resultUid.innerText = "이미 사용중인 아이디 입니다.";
+  				    			resultUid.style.color = "red";
+  				    		}else{
+  				    			resultUid.innerText = "사용 가능한 아이디 입니다.";
+  				    			resultUid.style.color = "green";
+  				    		}
+  				      	} else {
+  				        	alert('Request Error!');
+  				      	}
+    			    }
+    			};
+			});
+		};
+    </script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <h3>Board System v1.0</h3>
+    </header>
+
+    <main id="user" class="register">
 
             <form th:action="@{/user/register}" method="post">
                 <table border="1">

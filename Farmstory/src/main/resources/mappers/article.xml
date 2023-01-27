@@ -4,14 +4,22 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.farmstory.dao.ArticleDAO">
 
+    <!-- insert 후 생성된 key(PK)를 리턴받기 위한 태그 속성 -->
     <insert id="insertArticle" useGeneratedKeys="true" keyProperty="no">
         insert into `board_article` set
         `title`=#{title},
         `content`=#{content},
+        <if test="fname.isEmpty() == true">
+            `file`=0,
+        </if>
+        <if test="fname.isEmpty() == false">
+            `file`=1,
+        </if>
         `uid`=#{uid},
         `regip`=#{regip},
         `rdate`=NOW()
     </insert>
+
     <insert id="insertFile">
         insert into `board_file` set
         `parent`=#{parent},
@@ -19,16 +27,64 @@
         `oriName`=#{oriName},
         `rdate`=NOW();
     </insert>
+
+    <!-- 조회결과(select)를 상세하게 매핑하기 위한 사용자 정의 MAP -->
+    <resultMap id="selectArticleResultMap" type="kr.co.farmstory.vo.ArticleVO">
+        <id column="no" property="no"/>
+        <result column="parent" property="parent"/>
+        <result column="comment" property="comment"/>
+        <!--<result column="cate" property="cate"/>-->
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="file" property="file"/>
+        <!--<result column="hit" property="hit"/>-->
+        <result column="uid" property="uid"/>
+        <result column="regip" property="regip"/>
+        <result column="rdate" property="rdate"/>
+
+        <!-- 연관관계 매핑 -->
+        <association property="fileVO" javaType="kr.co.farmstory.vo.FileVO">
+            <id column="fno" property="fno"/>
+            <result column="parent" property="parent"/>
+            <result column="newName" property="newName"/>
+            <result column="oriName" property="oriName"/>
+            <result column="download" property="download"/>
+        </association>
+    </resultMap>
+
+    <select id="selectArticle" resultMap="selectArticleResultMap">
+        select * from `board_article` as a
+        left join `board_file` as b
+        on a.no = b.parent
+        where `no`=#{no};
+    </select>
+
     <select id="selectArticles" resultType="kr.co.farmstory.vo.ArticleVO">
-        select a.`no`, a.`title`, a.`uid`, b.`nick`, a.`rdate`, a.`hit`, a.`comment` from `board_article` as a join `board_user` as b on a.`uid`=b.`uid`;
+        select a.*, b.`nick` from `board_article` as a
+        join `board_user` as b
+        on a.`uid`=b.`uid`
+        where `parent`=0
+        order by `no` desc
+        limit #{start}, 10;
     </select>
-    <select id="selectArticle" resultType="kr.co.farmstory.vo.ArticleVO">
-        select
+
+    <select id="selectCountTotal" resultType="int">
+        select count(`no`) from `board_article` where `parent`=0;
     </select>
-    <update id="updateArticle">
-        update `board_article` set `title`,`content`,`rdate`= NOW() where `no`=?;
+
+    <select id="selectFile" resultType="kr.co.farmstory.vo.FileVO">
+        select * from `board_file` where `fno`=#{fno};
+    </select>
+
+    <update id="updateFileDownload">
+        update `board_file` set `download`=`download`+1 where `fno`=#{fno};
     </update>
+
+    <update id="updateArticle">
+        update `board_article` set `title`=#{title},`content`=#{content},`rdate`= NOW() where `no`=#{no};
+    </update>
+
     <delete id="deleteArticle">
-        delete * from `board_article` where `no`=?;
+        delete from `board_article` where `no`=#{no};
     </delete>
 </mapper>

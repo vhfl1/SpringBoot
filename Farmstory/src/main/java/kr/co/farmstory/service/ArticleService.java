@@ -43,19 +43,30 @@ public class ArticleService {
         return result;
     }
 
+    public int selectCountTotal(){
+        return dao.selectCountTotal();
+    }
+
     public ArticleVO selectArticle(int no) {
         return dao.selectArticle(no);
     }
 
-    public List<ArticleVO> selectArticles() {
-        return dao.selectArticles();
+    public List<ArticleVO> selectArticles(int start) {
+        return dao.selectArticles(start);
     }
 
+    public FileVO selectFile(int fno){
+        return dao.selectFile(fno);
+    }
+
+    public int updateFileDownload(int fno){
+        return dao.updateFileDownload(fno);
+    }
     public void updateArticle(ArticleVO vo) {
         dao.updateArticle(vo);
     }
 
-    public void deleteArticle(String no) {
+    public void deleteArticle(int no) {
         dao.deleteArticle(no);
     }
 
@@ -118,8 +129,54 @@ public class ArticleService {
     }
 
 
+    //현재 페이지 번호
+    public int getCurrentPage(String pg){
+        int currentPage =1;
 
+        if(pg != null){
+            currentPage = Integer.parseInt(pg);
+        }
 
+        return currentPage;
+    }
+
+    //페이지 시작값
+    public int getLimitStart(int currentPage){
+        return (currentPage -1) * 10;
+    }
+
+    //마지막 페이지 번호
+    public int getLastPageNum(int total){
+        int lastPageNum = 0;
+
+        if(total % 10 == 0){
+            lastPageNum = total / 10;
+        }else{
+            lastPageNum = total / 10 + 1;
+        }
+
+        return lastPageNum;
+    }
+
+    //페이지 시작번호
+    public int getPageStartNum(int total, int start){
+        return  total - start;
+    }
+
+    //페이지 그룹
+    public int[] getPageGroup(int  currentPage, int lastPageNum){
+        int groupCurrent = (int) Math.ceil(currentPage / 10.0);
+        int groupStart = (groupCurrent - 1) * 10 + 1;
+        int groupEnd = groupCurrent * 10;
+
+        if(groupEnd > lastPageNum){
+            groupEnd = lastPageNum;
+        }
+
+        int[] groups = {groupStart, groupEnd};
+
+        return groups;
+    }
 
 
 }
