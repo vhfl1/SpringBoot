@@ -70,6 +70,8 @@ public class BoardController {
         model.addAttribute("cate", cate);
         model.addAttribute("article", article);
 
+        service.updateArticleHit(no);
+
         return "board/view";
     }
 

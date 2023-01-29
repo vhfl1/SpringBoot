@@ -65,16 +65,15 @@ public class ArticleService {
     public void updateArticle(ArticleVO vo) {
         dao.updateArticle(vo);
     }
+    public void updateArticleHit(int no) {
+        dao.updateArticleHit(no);
+    }
 
     public void deleteArticle(int no) {
         dao.deleteArticle(no);
     }
 
-
-    //파일 업로드
-    @Value("${spring.servlet.multipart.location}")
-    private String uploadPath;
-
+    //파일 다운로드
     public ResponseEntity<Resource> fileDownload(FileVO vo) throws IOException {
         Path path = Paths.get(uploadPath + "/" + vo.getNewName());
         log.info("path :" + path);
@@ -94,6 +93,10 @@ public class ArticleService {
 
         return new ResponseEntity<>(resource, headers, HttpStatus.OK);
     }
+
+    //파일 업로드
+    @Value("${spring.servlet.multipart.location}")
+    private String uploadPath;
 
     public FileVO fileUpload(ArticleVO vo) {
         //첨부파일
