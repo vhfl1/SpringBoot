@@ -1,5 +1,7 @@
 package map.busan.animal.hospital.vo;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +40,7 @@ public class ResultVO {
 			@Getter
 			@Setter
 			public class Items{
-				private ItemVO[] item;  
+				private List<ItemVO> item;  
 			}
 		}		
 	}

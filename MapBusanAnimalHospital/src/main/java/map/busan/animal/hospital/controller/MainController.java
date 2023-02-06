@@ -40,7 +40,7 @@ public class MainController {
 							.queryParam("pageNo", pageNo)
 							.queryParam("numOfRows", numOfRows)
 							.encode()
-							.build()
+							.build(true)
 							.toUri();
 		
 		RequestEntity<Void> req = RequestEntity.get(uri).build();
@@ -55,7 +55,7 @@ public class MainController {
 		ObjectMapper om = new ObjectMapper();
 		try {
 			ResultVO resultVO = om.readValue(jsonData, ResultVO.class);
-			Items items = resultVO.getGetTblAnimalHospital().getBody().getItems();
+			List<ItemVO> items = resultVO.getGetTblAnimalHospital().getBody().getItems().getItem();
 			System.out.println(items);
 			model.addAttribute("items", items);
 			
