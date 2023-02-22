@@ -40,7 +40,7 @@ public class ArticleService {
 			
 			//파일 업로드
 			FileVO fileVO = new FileVO();
-			fileVO.setParent(vo.getNo());
+			fileVO.setParent(vo.getNo());;
 			
 			fileUpload(file, fileVO);
 			
