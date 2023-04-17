@@ -42,10 +42,20 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\java1\Desktop\Workspace\SpringBoot\Voard"/>
 			<item value="C:\Users\java1\Desktop\Workspace\SpringBoot\Ch05"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
 			<item value="C:\Users\java1\Desktop\Workspace\SpringBoot\Ch07\src\main\resources\application.properties"/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="166"/>
+		<item key="DIALOG_Y_ORIGIN" value="336"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
 		</list>
 	</section>
 </section>
