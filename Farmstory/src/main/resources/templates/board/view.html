@@ -1,7 +1,42 @@
 <th:block th:include="@{_header.html}"/>
 <th:block th:include="@{board/__${group}__.html}"/>
-<main id="board" class="view">
+<script>
+    $(document).ready(function(){
+        //댓글 삭제하기
+        $(document).on('click','.delete',function(e){
+            e.preventDefault();
 
+            let article = $(this);
+            let result = confirm('정말 삭제하시겠습니까?');
+
+            if(result){
+                let no = $(this).attr('data-no');
+                let parent = $(this).attr('data-parent');
+
+                let jsonData={
+                              "no":no,
+                              "parent":parent
+                };
+
+                $.ajax({
+                    url:'',
+                    type:'',
+                    data:jsonData,
+                    dataType:'json',
+                    success:function(data){
+
+                    }
+                });
+            }
+        });
+
+
+
+
+    });
+
+</script>
+<main id="board" class="view">
     <table>
         <caption>글보기</caption>
         <tr>
@@ -27,22 +62,27 @@
     <!-- 댓글목록 -->
     <section class="commentList">
         <h3>댓글목록</h3>
-        <article>
-            <span class="nick">길동이</span>
-            <span class="date">20-05-13</span>
-            <p class="content">댓글 샘플입니다.</p>
+        <article th:each="comment:${comments}">
+            <span class="nick">[[${comment.nick}]]</span>
+            <span class="date">[[${comment.rdate.substring(2,10)}]]</span>
+            <p class="content">[[${comment.content}]]</p>
             <div>
-                <a href="#" class="remove">삭제</a>
-                <a href="#" class="modify">수정</a>
+                <th:block th:if="${#authentication.principal.user.uid.equals(comment.uid)}">
+                    <a href="#" class="remove" data-no="${comment.no}" data-parent="${comment.parent}">삭제</a>
+                    <a href="#" class="modify" data-no="${comment.no}">수정</a>
+                </th:block>
             </div>
         </article>
-        <p class="empty">등록된 댓글이 없습니다.</p>
+        <p class="empty" th:if="${comment.size()==0}">등록된 댓글이 없습니다.</p>
     </section>
 
     <!-- 댓글쓰기 -->
     <section class="commentForm">
         <h3>댓글쓰기</h3>
-        <form action="#">
+        <form action="#" method="post">
+            <input type="hidden" name="pg" value="${pg}">
+            <input type="hidden" name="parent" value="${parent}">
+            <input type="hidden" name="uid" value="${#authentication.principal.user.uid}">
             <textarea name="content" placeholder="댓글내용 입력"></textarea>
             <div>
                 <a href="#" class="btn btnCancel">취소</a>

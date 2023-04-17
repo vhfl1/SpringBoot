@@ -29,4 +29,5 @@ public class ArticleVO {
 	private String regip;
 	private String rdate;
 	private String nick;
+
 }
