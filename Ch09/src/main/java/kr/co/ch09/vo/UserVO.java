@@ -17,13 +17,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity
-@Table(name ="user1")
-public class User1VO {
-	@Id
+public class UserVO {
 	private String uid;
-	private String pass;
 	private String name;
-	private String hp;
+	private String addr;
 	private int age;
 }
