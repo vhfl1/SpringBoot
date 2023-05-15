@@ -2,7 +2,7 @@ package kr.co.voard.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import kr.co.sboard.entity.UserEntity;
+import kr.co.voard.repository.UserEntity;
 
 public interface UserRepo extends JpaRepository<UserEntity, String>{
 	
